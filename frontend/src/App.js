@@ -110,6 +110,7 @@ function App() {
       
       const response = await axios.post(`${BACKEND_URL}/api/predict`, numericData);
       setPredictionResult(response.data);
+      setHeartRisk(response.data.prediction === 1 ? 'high-risk' : 'low-risk');
       toast.success('Prediction completed!');
     } catch (error) {
       console.error('Error making prediction:', error);
