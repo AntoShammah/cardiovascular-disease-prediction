@@ -67,11 +67,6 @@ code {
   animation: spin 1s linear infinite;
 }
 
-/* Medical card hover effects */
-.medical-card {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-}
-
 /* Form focus styles */
 .form-input {
   @apply transition-all duration-200 focus:ring-2 focus:ring-medical-500 focus:border-medical-500;
