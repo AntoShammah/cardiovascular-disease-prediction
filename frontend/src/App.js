@@ -480,6 +480,12 @@ function App() {
                       </div>
                     </div>
                     
+                    {/* Live ECG Animation */}
+                    <div className="ecg-container">
+                      <div className="ecg-line"></div>
+                      <div className={`ecg-wave ${predictionResult.prediction === 1 ? 'high-risk' : 'low-risk'}`}></div>
+                    </div>
+                    
                     <div className="metric-card">
                       <div className="text-sm text-slate-600 mb-1">Model Used</div>
                       <div className="font-semibold text-slate-800">{predictionResult.model_used}</div>
@@ -494,8 +500,14 @@ function App() {
                   </div>
                 ) : (
                   <div className="text-center py-12">
-                    <Heart className="h-16 w-16 text-slate-300 mx-auto mb-4" />
+                    <Heart className="h-16 w-16 text-slate-300 mx-auto mb-4 heart-animation" />
                     <p className="text-slate-500">Enter patient information and click "Predict Risk" to see the assessment results.</p>
+                    
+                    {/* Default ECG Animation */}
+                    <div className="ecg-container mt-6">
+                      <div className="ecg-line"></div>
+                      <div className="ecg-wave"></div>
+                    </div>
                   </div>
                 )}
               </div>
