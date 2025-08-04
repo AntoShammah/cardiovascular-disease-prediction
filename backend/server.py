@@ -70,7 +70,32 @@ class HeartDiseasePredictor:
                                'diaBP', 'prevalentHyp', 'diabetes', 'BPMeds', 'male']
         self.best_model = None
         self.best_model_name = None
+        self.neural_network = None
         self.load_data()
+
+    def create_neural_network(self, input_shape):
+        """Create a deep neural network for heart disease prediction"""
+        model = keras.Sequential([
+            layers.Input(shape=(input_shape,)),
+            layers.Dense(128, activation='relu'),
+            layers.Dropout(0.3),
+            layers.BatchNormalization(),
+            layers.Dense(64, activation='relu'),
+            layers.Dropout(0.2),
+            layers.BatchNormalization(),
+            layers.Dense(32, activation='relu'),
+            layers.Dropout(0.1),
+            layers.Dense(16, activation='relu'),
+            layers.Dense(1, activation='sigmoid')
+        ])
+        
+        model.compile(
+            optimizer=keras.optimizers.Adam(learning_rate=0.001),
+            loss='binary_crossentropy',
+            metrics=['accuracy', 'precision', 'recall']
+        )
+        
+        return model
 
     def load_data(self):
         """Load and preprocess the heart disease dataset"""
