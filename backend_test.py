@@ -28,9 +28,15 @@ class HeartDiseaseAPITester:
     def test_api_health(self):
         """Test basic API health"""
         try:
-            response = requests.get(f"{self.base_url}/", timeout=10)
+            # Test dataset-info endpoint instead of root since root returns HTML
+            response = requests.get(f"{self.base_url}/api/dataset-info", timeout=10)
             success = response.status_code == 200
-            details = f"Status: {response.status_code}, Response: {response.json()}" if success else f"Status: {response.status_code}"
+            if success:
+                data = response.json()
+                success = 'total_patients' in data
+                details = f"API is healthy, Dataset has {data.get('total_patients', 0)} patients"
+            else:
+                details = f"Status: {response.status_code}"
             self.log_test("API Health Check", success, details)
             return success
         except Exception as e:
