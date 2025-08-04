@@ -226,8 +226,11 @@ function App() {
                 <Heart className="h-8 w-8 text-medical-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-slate-800">CardioPredict</h1>
-                <p className="text-sm text-slate-600">AI-Powered Heart Disease Prediction System</p>
+                <h1 className="text-2xl font-bold text-slate-800">
+                  CardioPredict 
+                  <span className="text-sm font-normal text-slate-500 ml-2">by ANTO SHAMMAH</span>
+                </h1>
+                <p className="text-sm text-slate-600">an AI-Powered Heart Disease Prediction System</p>
               </div>
             </div>
             
