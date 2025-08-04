@@ -1,0 +1,101 @@
+/* Additional component specific styles */
+
+.gradient-medical {
+  background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+}
+
+.gradient-health {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.feature-card {
+  @apply bg-white rounded-xl shadow-md border border-slate-200 p-6 medical-card;
+}
+
+.metric-card {
+  @apply bg-gradient-to-br from-white to-slate-50 rounded-xl shadow-sm border border-slate-200 p-4;
+}
+
+.prediction-result {
+  @apply rounded-xl p-6 text-center font-semibold text-lg;
+}
+
+.prediction-high-risk {
+  @apply bg-gradient-to-br from-danger-50 to-danger-100 text-danger-800 border border-danger-200;
+}
+
+.prediction-low-risk {
+  @apply bg-gradient-to-br from-health-50 to-health-100 text-health-800 border border-health-200;
+}
+
+.chart-container {
+  @apply bg-white rounded-xl shadow-md border border-slate-200 p-6;
+}
+
+.form-section {
+  @apply bg-white rounded-xl shadow-md border border-slate-200 p-6;
+}
+
+.input-group {
+  @apply space-y-2;
+}
+
+.input-label {
+  @apply block text-sm font-medium text-slate-700;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 border border-slate-300 rounded-lg form-input text-slate-900 placeholder-slate-400;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-slate-800 mb-6;
+}
+
+.subsection-title {
+  @apply text-lg font-semibold text-slate-700 mb-4;
+}
+
+/* Chart styling */
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+/* Loading states */
+.loading-spinner {
+  @apply inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite];
+}
+
+.loading-overlay {
+  @apply absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10;
+}
+
+/* Medical icons and colors */
+.icon-medical {
+  @apply text-medical-600;
+}
+
+.icon-health {
+  @apply text-health-600;
+}
+
+.icon-warning {
+  @apply text-warning-600;
+}
+
+.icon-danger {
+  @apply text-danger-600;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .mobile-stack {
+    @apply flex-col space-y-4 space-x-0;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}
