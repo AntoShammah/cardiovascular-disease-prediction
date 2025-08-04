@@ -225,8 +225,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-medical-100 rounded-xl pulse-indicator">
-                <Heart className="h-8 w-8 text-medical-600 heart-animation" />
+              <div className={`p-2 bg-medical-100 rounded-xl pulse-indicator ${heartRisk !== 'normal' ? heartRisk : ''}`}>
+                <Heart className={`h-8 w-8 text-medical-600 heart-animation ${heartRisk !== 'normal' ? heartRisk : ''}`} />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-slate-800">
