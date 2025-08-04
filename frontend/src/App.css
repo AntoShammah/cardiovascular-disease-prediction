@@ -45,7 +45,7 @@
 }
 
 .input-field {
-  @apply w-full px-4 py-3 border border-slate-300 rounded-lg form-input text-slate-900 placeholder-slate-400;
+  @apply w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 transition-all duration-200 focus:ring-2 focus:ring-medical-500 focus:border-medical-500;
 }
 
 .section-title {
