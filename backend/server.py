@@ -407,13 +407,24 @@ class HeartDiseasePredictor:
                 columns=input_df.columns
             )
             
-            # Make prediction
-            prediction = self.best_model.predict(input_scaled)[0]
-            prediction_proba = self.best_model.predict_proba(input_scaled)[0] if hasattr(self.best_model, 'predict_proba') else [0, 0]
+            # Make prediction based on model type
+            if self.best_model_name == 'Deep Neural Network':
+                # Neural network prediction
+                prediction_proba = self.best_model.predict(input_scaled, verbose=0)
+                prediction = (prediction_proba > 0.5).astype(int)[0][0]
+                risk_probability = float(prediction_proba[0][0])
+            else:
+                # Traditional ML model prediction
+                prediction = self.best_model.predict(input_scaled)[0]
+                if hasattr(self.best_model, 'predict_proba'):
+                    prediction_proba = self.best_model.predict_proba(input_scaled)[0]
+                    risk_probability = float(prediction_proba[1])
+                else:
+                    risk_probability = float(prediction)
             
             return {
                 'prediction': int(prediction),
-                'risk_probability': round(float(prediction_proba[1]) * 100, 2),
+                'risk_probability': round(risk_probability * 100, 2),
                 'model_used': self.best_model_name,
                 'interpretation': 'High Risk' if prediction == 1 else 'Low Risk'
             }
