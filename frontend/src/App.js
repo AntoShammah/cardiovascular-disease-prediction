@@ -137,6 +137,7 @@ function App() {
       BPMeds: ''
     });
     setPredictionResult(null);
+    setHeartRisk('normal');
   };
 
   // Chart configurations
