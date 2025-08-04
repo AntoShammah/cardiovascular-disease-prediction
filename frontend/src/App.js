@@ -17,6 +17,7 @@ function App() {
   const [featureImportance, setFeatureImportance] = useState([]);
   const [datasetInfo, setDatasetInfo] = useState(null);
   const [bestModel, setBestModel] = useState('');
+  const [heartRisk, setHeartRisk] = useState('normal'); // normal, high-risk, low-risk
   
   // Patient form data
   const [patientData, setPatientData] = useState({
