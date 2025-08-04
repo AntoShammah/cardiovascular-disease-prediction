@@ -16,11 +16,18 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier, VotingClassifier, StackingClassifier, ExtraTreesClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix, roc_auc_score
 from sklearn.feature_selection import SelectKBest, chi2
+from imblearn.over_sampling import SMOTE
+from imblearn.combine import SMOTETomek
 import xgboost as xgb
 import lightgbm as lgb
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+import warnings
+warnings.filterwarnings('ignore')
 
 app = FastAPI(title="Heart Disease Prediction API", version="1.0.0")
 
