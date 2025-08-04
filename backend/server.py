@@ -92,7 +92,7 @@ class HeartDiseasePredictor:
         model.compile(
             optimizer=keras.optimizers.Adam(learning_rate=0.001),
             loss='binary_crossentropy',
-            metrics=['accuracy', 'precision', 'recall']
+            metrics=['accuracy']
         )
         
         return model
